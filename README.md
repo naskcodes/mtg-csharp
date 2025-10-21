@@ -1,5 +1,5 @@
 # mtg-csharp
-Desenvolvedores: *Roberta Nascimento*, *Júlio Gualberto*
-Back-end: C#
-Front-end: Angular
-Idioma: Português (Brasil)
+Desenvolvedores: *Roberta Nascimento*, *Júlio Gualberto*<br>
+Back-end: C#<br>
+Front-end: Angular<br>
+Idioma: Português (Brasil)<br>
