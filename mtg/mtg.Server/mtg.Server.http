@@ -1,6 +1,0 @@
-@mtg.Server_HostAddress = http://localhost:5221
-
-GET {{mtg.Server_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
