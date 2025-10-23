@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "ContainingType": "mtg.Api.Controllers.Cartas",
+    "Method": "ListaCartas",
+    "RelativePath": "api/Cartas/ListaCartas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
