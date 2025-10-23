@@ -1,2 +1,0 @@
-wwwroot\index.html
-C:\BolsaPasta\workarea\mtg-csharp\back\wwwroot\index.html
