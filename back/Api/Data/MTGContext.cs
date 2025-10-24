@@ -8,9 +8,16 @@ public class MTGContext : DbContext
     public MTGContext(DbContextOptions options) : base(options) { }
 
 
-    public DbSet<Carta> Cartas { get; set; }
+    public DbSet<Cartas> Cartas { get; set; }
+    public DbSet<Cores> Cores { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Carta>().HasKey(p => p.Id);
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder
+            .EnableSensitiveDataLogging();
+
     }
 }

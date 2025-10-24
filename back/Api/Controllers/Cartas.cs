@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace mtg.Api.Controllers;
 
@@ -11,7 +12,7 @@ public class Cartas(Data.MTGContext context) : Controller
     [HttpGet("[action]")]
     public IActionResult ListaCartas()
     {
-        var retorno = _context.Cartas.ToList();
+        var retorno = _context.Cartas.AsNoTracking().Include(p => p.Cores).ToList();
 
         return Ok(retorno);
     }

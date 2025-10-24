@@ -1,12 +1,24 @@
 using Microsoft.EntityFrameworkCore;
 using mtg.Api.Data;
+using Npgsql;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<MTGContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("mtgpostgres")));
+var bdConnection = new NpgsqlDataSourceBuilder(builder.Configuration.GetConnectionString("mtgpostgres"));
+
+bdConnection.EnableDynamicJson(); // Enable dynamic JSON serialization
+
+var dataSource = bdConnection.Build();
+
+builder.Services.AddDbContext<MTGContext>(options => options.UseNpgsql(dataSource));
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
+
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();

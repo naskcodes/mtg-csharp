@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("01d48a1b-6395-4c73-82f3-3df7d4eb29f3")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("mtg")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8031aeedd01f0fb0c4d75ecbed5646ad30b8063a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf36cede675c66521dd246babd4472b3ac0b5193")]
 [assembly: System.Reflection.AssemblyProductAttribute("mtg")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mtg")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
