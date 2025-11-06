@@ -1,1 +1,5 @@
-export const environment = {};
+export const environment = {
+    production: true,
+    root: '',
+    nome: 'padrão'
+};
