@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #191716;
+    --secondary-color: #6B008F;
+    --ternary-color: #440D0F;
+    --primary-gradient: linear-gradient(10deg, var(--ternary-color), var(--secondary-color), var(--ternary-color))
+}
+
+
+//Roberta Nascimento, 6/11/2025, 14:31 > Configurações de estilo globais
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--primary-color);
+}
+
+header {
+    background: var(--primary-gradient);
+}
+
+.header__container {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    padding: 2%;
+}
+
+.hciitens {
+    text-align: center;
+}
