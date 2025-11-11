@@ -5,6 +5,17 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Geral",
+    builder =>
+    {
+        builder.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+    });
+});
+
 var bdConnection = new NpgsqlDataSourceBuilder(builder.Configuration.GetConnectionString("mtgpostgres"));
 
 bdConnection.EnableDynamicJson(); // Enable dynamic JSON serialization
@@ -43,6 +54,7 @@ app.MapControllers();
 if (app.Environment.IsProduction())
 {
     app.UseHttpsRedirection();
+    app.UseCors("Geral");
 }
 
 app.Run();

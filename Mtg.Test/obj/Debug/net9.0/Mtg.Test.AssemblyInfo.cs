@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mtg.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0134cfaf0f25ce70c8ba93a951a4a5144cd58fa9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0e5e9ad6b3e6b3b3bb6f27205e41dc1db326272")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mtg.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mtg.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
