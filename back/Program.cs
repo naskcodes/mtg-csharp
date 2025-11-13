@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using mtg.Api.Data;
+using mtg.Api.Repositories;
+using mtg.Api.Repositories.interfaces;
 using Npgsql;
 using System.Text.Json.Serialization;
 
@@ -12,6 +14,8 @@ bdConnection.EnableDynamicJson(); // Enable dynamic JSON serialization
 var dataSource = bdConnection.Build();
 
 builder.Services.AddDbContext<MTGContext>(options => options.UseNpgsql(dataSource));
+
+builder.Services.AddScoped<IUsuario, Usuario>();
 
 // Add services to the container.
 builder.Services.AddControllers().AddJsonOptions(options =>
