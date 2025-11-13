@@ -6,6 +6,6 @@ public interface IUsuario
 {
     Task<int> CriarUsuario(Usuarios usuario);
     bool VerificaEmail(string email);
-
+    Usuarios ? BuscarUsuarioPorEmail(string email);
 }
 

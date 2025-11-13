@@ -12,6 +12,11 @@ namespace mtg.Api.Repositories
             _context = context;
         }
 
+        public Usuarios ? BuscarUsuarioPorEmail(string email)
+        {
+            return _context.Usuarios.SingleOrDefault(u => u.Email == email);
+        }
+
         public async Task<int> CriarUsuario(Usuarios usuario)
         {
 
