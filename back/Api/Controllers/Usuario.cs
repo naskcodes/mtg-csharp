@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using mtg.Api.Controllers.Dto;
 using mtg.Api.Models;
 using mtg.Api.Repositories.interfaces;
@@ -16,13 +15,13 @@ namespace mtg.Api.Controllers
         {
             _usuario = usuario;
         }
-
-        public IActionResult RegistrarUsuario(RegistrarUsuarioDto dto)
+        [HttpPost("[action]")]
+        public async Task<ActionResult> RegistrarUsuario(RegistrarUsuarioDto dto)
         {
 
-            var verificarEmail = _usuario.VerificaEmail(dto.Email); 
-            
-            if(verificarEmail is true)
+            var verificarEmail = _usuario.VerificaEmail(dto.Email);
+
+            if (verificarEmail is true)
             {
                 return Unauthorized("email ja em uso");
             }
@@ -34,9 +33,9 @@ namespace mtg.Api.Controllers
                 Senha = dto.Senha,
             };
 
-            var criarUsuario = _usuario.CriarUsuario(usuario);
+            var criarUsuario = await _usuario.CriarUsuario(usuario);
 
-            return Ok(criarUsuario);    
+            return Ok(criarUsuario);
         }
     }
 }

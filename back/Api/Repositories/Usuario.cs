@@ -1,6 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-using mtg.Api.Data;
+﻿using mtg.Api.Data;
 using mtg.Api.Models;
 
 namespace mtg.Api.Repositories

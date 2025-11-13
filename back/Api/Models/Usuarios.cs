@@ -1,5 +1,4 @@
-﻿using mtg.Api.Controllers;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mtg.Api.Models;
