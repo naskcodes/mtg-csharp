@@ -1,28 +1,26 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using mtg.Api.Controllers;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mtg.Api.Models;
 
-[Table("cartas")]
-public record Cartas
+
+[Table("usuarios")]
+public class Usuarios
 {
     [Key]
     [Column("id")]
     public int Id { get; set; }
-
+    
     [Column("nome")]
     public string Nome { get; set; } = string.Empty;
+    
+    [Column("email")]
+    public string Email { get; set; } = string.Empty;
 
-    [Column("idcor")]
-    public int IdCor { get; set; }
-
-    [Column("quantidade")]
-    public int Quantidade { get; set; }
-
-    [ForeignKey("IdCor")]
-    public Cores? Cores { get; set; }
-
+    [Column("senha")]
+    public string Senha { get; set; } = string.Empty;
+    
     public List<UsuarioCartas>? UsuarioCarta { get; set; }
-
 }
+
