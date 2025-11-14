@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using mtg.Api.Data;
+﻿using mtg.Api.Data;
 using mtg.Api.Models;
 using mtg.Api.Repositories.interfaces;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mtg.Api.Repositories;
 
@@ -22,11 +20,11 @@ public class Carta : ICarta
         if (atributoCarta is false)
         {
             throw new KeyNotFoundException("carta Nao encontrada");
-        } 
+        }
 
         var novaCarta = new Cartas
         {
-            Nome = cartas.Nome ,
+            Nome = cartas.Nome,
             IdCor = cartas.IdCor,
             Quantidade = cartas.Quantidade
         };
@@ -39,9 +37,23 @@ public class Carta : ICarta
 
     }
 
+    public async Task AumentarQuantidadeDeCartas(int cartaId)
+    {
+        var carta = _context.Cartas.Single(p => p.Id.Equals(cartaId));
+
+        carta.Quantidade += 1;
+
+        await _context.SaveChangesAsync();
+    }
+
     public Task AumentarQuantidadeDeCartaNoPerfil(int cartaId)
     {
         throw new NotImplementedException();
+    }
+
+    public Cartas? BuscarCarta(int IdCarta)
+    {
+        return _context.Cartas.SingleOrDefault(cr => cr.Id.Equals(IdCarta));
     }
 
     public Task<bool> VerificarExistenciaDaCartaNoPerfil(int cartaId, int usuarioId)
