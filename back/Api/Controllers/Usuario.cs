@@ -20,6 +20,7 @@ namespace mtg.Api.Controllers
         {
             _usuario = usuario;
         }
+
         [HttpPost("[action]")]
         public async Task<ActionResult> RegistrarUsuario(RegistrarUsuarioDto dto)
         {
