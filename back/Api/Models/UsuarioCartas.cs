@@ -10,6 +10,9 @@ namespace mtg.Api.Models
         [Key]
         [Column("id")]
         public int Id { get; set; }
+
+        [Column("quantidade")]
+        public int Quantidade { get; set; }
         
         [Column("usuarioId")]
         public int UsuarioId { get; set; }
@@ -18,7 +21,7 @@ namespace mtg.Api.Models
         public int CartaId {  get; set; }
         
         [ForeignKey("CartaId")]
-        public Cartas? Cartas { get; set; }
+        public Cartas? Cartas { get; set; }     
         
         [ForeignKey("UsuarioId")]
         public Usuarios? Usuarios { get; set; }

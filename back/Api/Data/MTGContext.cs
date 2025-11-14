@@ -7,20 +7,20 @@ using Npgsql;
 namespace mtg.Api.Data;
 
 
-//public class MTGContextFactory : IDesignTimeDbContextFactory<MTGContext>
-//{
-//    public MTGContext CreateDbContext(string[] args)
-//    {     
-//        var builder = new NpgsqlDataSourceBuilder("Host=localhost;Database=postgres;Username=postgres;Port=2222;Password=postgres");
-//        builder.EnableDynamicJson();
-//        var dataSource = builder.Build();
+public class MTGContextFactory : IDesignTimeDbContextFactory<MTGContext>
+{
+    public MTGContext CreateDbContext(string[] args)
+    {
+        var builder = new NpgsqlDataSourceBuilder("Host=localhost;Database=postgres;Username=postgres;Port=2222;Password=postgres");
+        builder.EnableDynamicJson();
+        var dataSource = builder.Build();
 
-//        var optionsBuilder = new DbContextOptionsBuilder<MTGContext>();
-//        optionsBuilder.UseNpgsql(dataSource);
+        var optionsBuilder = new DbContextOptionsBuilder<MTGContext>();
+        optionsBuilder.UseNpgsql(dataSource);
 
-//        return new MTGContext(optionsBuilder.Options);
-//    }
-//}
+        return new MTGContext(optionsBuilder.Options);
+    }
+}
 
 public class MTGContext : DbContext
 {
