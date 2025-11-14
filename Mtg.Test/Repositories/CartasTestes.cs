@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using mtg.Api.Data;
 using mtg.Api.Models;
 using mtg.Api.Repositories;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mtg.Test.Repositories;
 
@@ -36,6 +35,44 @@ public class CartasTestes
 
         await error.Should().ThrowAsync<KeyNotFoundException>();
     }
+
+    [Fact]
+    public async Task DeveAumentarQuantidadeDeCartas()
+    {
+        using var context = new MTGContext(_options);
+
+        var cores = new Cores
+        {
+            Nome = "Simic",
+            CoresCarta = new List<string> { "verde", "azul" },
+        };
+
+        context.Cores.Add(cores);
+
+        await context.SaveChangesAsync();        
+        
+        var novaCarta = new Cartas
+        {
+            Nome = "carta sucesso",
+            IdCor = cores.Id,
+            Quantidade = 1
+        };
+
+        context.Cartas.Add(novaCarta);
+
+        await context.SaveChangesAsync();
+
+        var cartaParaAumentar = context.Cartas.Single(p => p.Id.Equals(novaCarta.Id));
+
+        cartaParaAumentar.Quantidade += 1;
+
+        await context.SaveChangesAsync();
+
+        cartaParaAumentar.Should().NotBeNull();
+
+        cartaParaAumentar.Quantidade.Should().Be(2);
+    }
+
     [Fact]
     public async Task DeveRetornarSucessoEAdicionarAoBanco()
     {
@@ -45,7 +82,6 @@ public class CartasTestes
         {
             Nome = "Simic",
             CoresCarta = new List<string> { "verde", "azul" },
-
         };
 
         context.Cores.Add(cores);
