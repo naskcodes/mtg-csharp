@@ -22,4 +22,7 @@ public record Cartas
 
     [ForeignKey("IdCor")]
     public Cores? Cores { get; set; }
+
+    public List<UsuarioCartas>? UsuarioCarta { get; set; }
+
 }
