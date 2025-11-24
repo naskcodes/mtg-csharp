@@ -1,12 +1,11 @@
-﻿using mtg.Api.Data;
-using mtg.Api.Models;
-using mtg.Api.Repositories.interfaces;
+﻿using mtg.Api.Models;
+using mtg.Data.interfaces;
 
-namespace mtg.Api.Repositories;
+namespace mtg.Data;
 
 public class Carta : ICarta
 {
-    private readonly Api.Data.MTGContext _context;
+    private readonly MTGContext _context;
 
     public Carta(MTGContext context)
     {

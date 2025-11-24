@@ -1,17 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using mtg.Api.Repositories.interfaces;
+using mtg.Data;
+using mtg.Data.interfaces;
 
-namespace mtg.Api.Controllers;
+namespace mtg.Api;
 
 [Route("api/[controller]")]
 [ApiController]
 public class Cartas : Controller
 {
-    private readonly Data.MTGContext _context;
+    private readonly MTGContext _context;
     private readonly ICarta _carta;
 
-    public Cartas(ICarta carta, Data.MTGContext context)
+    public Cartas(ICarta carta, MTGContext context)
     {
         _carta = carta;
         _context = context;
@@ -36,7 +37,7 @@ public class Cartas : Controller
             return Ok("quantidade de Carta Aumentado");
         }
 
-        var novaCarta = new Api.Models.Cartas
+        var novaCarta = new Models.Cartas
         {
             Nome = nome,
         };

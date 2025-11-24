@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using mtg.Api.Data;
 using mtg.Api.Helpers;
-using mtg.Api.Repositories;
-using mtg.Api.Repositories.interfaces;
+using mtg.Data;
+using mtg.Data.interfaces;
 using Npgsql;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -66,6 +65,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseCors("Geral");
+} 
+else if (app.Environment.IsProduction())
+{
+    app.UseHttpsRedirection();
 }
 
 app.UseDefaultFiles();
@@ -74,13 +78,6 @@ app.UseStaticFiles();
 
 app.UseAuthorization();
 
-app.MapControllers();
-
-
-if (app.Environment.IsProduction())
-{
-    app.UseHttpsRedirection();
-    app.UseCors("Geral");
-}
+app.MapControllers().RequireAuthorization();
 
 app.Run();
