@@ -5,7 +5,7 @@ using Moq;
 using mtg.Api.Controllers;
 using mtg.Api.Controllers.Dto;
 using mtg.Api.Models;
-using mtg.Api.Repositories.interfaces;
+using mtg.Data.interfaces;
 
 namespace Mtg.Test.Controller;
 

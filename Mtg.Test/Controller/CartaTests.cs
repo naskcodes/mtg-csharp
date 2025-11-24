@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using mtg.Api.Data;
 using mtg.Api.Models;
-using mtg.Api.Repositories.interfaces;
+using mtg.Data;
+using mtg.Data.interfaces;
 using CartaController = mtg.Api.Controllers;
 
 namespace Mtg.Test.Controller;

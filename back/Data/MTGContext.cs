@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using mtg.Api.Models;
 using Npgsql;
 
-namespace mtg.Api.Data;
+namespace mtg.Data;
 
 
 public class MTGContextFactory : IDesignTimeDbContextFactory<MTGContext>

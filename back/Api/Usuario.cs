@@ -3,12 +3,12 @@ using Microsoft.IdentityModel.Tokens;
 using mtg.Api.Controllers.Dto;
 using mtg.Api.Helpers;
 using mtg.Api.Models;
-using mtg.Api.Repositories.interfaces;
+using mtg.Data.interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace mtg.Api.Controllers;
+namespace mtg.Api;
 
 [Route("api/[controller]")]
 [ApiController]

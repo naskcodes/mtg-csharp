@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using mtg.Api.Data;
 using mtg.Api.Models;
 using mtg.Api.Repositories;
+using mtg.Data;
 
 namespace Mtg.Test.Repositories;
 

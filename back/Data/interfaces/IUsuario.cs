@@ -1,6 +1,6 @@
 ﻿using mtg.Api.Models;
 
-namespace mtg.Api.Repositories.interfaces;
+namespace mtg.Data.interfaces;
 
 public interface IUsuario
 {

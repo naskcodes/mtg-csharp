@@ -1,11 +1,11 @@
-﻿using mtg.Api.Data;
-using mtg.Api.Models;
+﻿using mtg.Api.Models;
+using mtg.Data.interfaces;
 
-namespace mtg.Api.Repositories
+namespace mtg.Data
 {
-    public class Usuario : Repositories.interfaces.IUsuario
+    public class Usuario : IUsuario
     {
-        private readonly Api.Data.MTGContext _context;
+        private readonly MTGContext _context;
 
         public Usuario(MTGContext context)
         {
